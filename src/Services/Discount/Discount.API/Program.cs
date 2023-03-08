@@ -1,10 +1,6 @@
 using Discount.API.Extensions;
 using Discount.API.Repositories;
 
-//var builder = WebApplication.CreateBuilder(args).Build();
-//host.MigrateDatabase<Program>();
-//host.Run();
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
