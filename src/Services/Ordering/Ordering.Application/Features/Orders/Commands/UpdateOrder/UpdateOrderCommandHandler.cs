@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracts.Persistence;
 using Ordering.Application.Exceptions;
 using Ordering.Domain.Entities;
@@ -11,15 +11,15 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
-        private readonly ILogger _logger;
+        //private readonly ILogger _logger;
 
         public UpdateOrderCommandHandler(IOrderRepository orderRepository,
-                                         IMapper mapper,
-                                         ILogger logger)
+                                         IMapper mapper)
+                                         //ILogger logger)
         {
             _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            //_logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
@@ -34,7 +34,7 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
 
             await _orderRepository.UpdateAsync(orderToUpdate);
 
-            _logger.LogError($"Order {orderToUpdate.Id} is successfully updated.");
+            //_logger.LogError($"Order {orderToUpdate.Id} is successfully updated.");
         }
     }
 }
