@@ -20,7 +20,7 @@ namespace Shopping.Aggregator.Controllers
             _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
         }
 
-        [HttpGet("{userNmae}", Name = "GetShopping")]
+        [HttpGet("{userName}", Name = "GetShopping")]
         [ProducesResponseType(typeof(ShoppingModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingModel>> GetShopping(string userName)
         {
